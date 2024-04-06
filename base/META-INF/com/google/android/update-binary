@@ -6,6 +6,14 @@
 
 umask 022
 
+KERNELSU_BIN="/data/adb/ksu/bin/busybox"
+if  [ -f "$KERNELSU_BIN" ]; then
+echo "- ${KERNELSU_BIN} found"
+UNZIP="${KERNELSU_BIN} unzip"
+else
+echo "- No busybox found,Use system unzip"
+UNZIP="/system/bin/unzip"
+fi
 # Global vars
 TMPDIR=/dev/tmp
 PERSISTDIR=/sbin/.magisk/mirror/persist
